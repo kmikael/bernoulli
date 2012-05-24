@@ -29,5 +29,15 @@ class BernoulliTest < Test::Unit::TestCase
 		assert_equal 1.0, p[0..2]
 	end
 	
+	def test_expected_value
+		p = Bernoulli.new(180, 1.0/6)
+		assert_equal 30, p.expected_value
+	end
+	
+	def test_variance
+		p = Bernoulli.new(180, 1.0/6)
+		assert_equal 25, p.variance
+	end
+	
 end
 

@@ -22,7 +22,14 @@ class Bernoulli
 			end
 			sum.to_f
 		end
-
+	end
+	
+	def expected_value
+		@n * @p
+	end
+	
+	def variance
+		@n * @p * (1 - @p)
 	end
 
 end
