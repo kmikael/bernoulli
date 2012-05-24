@@ -10,10 +10,10 @@ Gem::Specification.new do |spec|
 	]
 	spec.name = 'bernoulli'
 	spec.summary = 'Bernoulli process library'
-	spec.version = '0.0.0'
+	spec.version = '0.0.1'
 	
 	spec.date = '2012-05-24'
-	spec.description = "The Library that allows calculation of probibilities and properties of Bernoulli processes like coin tossing"
+	spec.description = "A Library that allows calculation of probibilities and properties of Bernoulli processes like coin tossing"
 	
 	spec.author = 'Mikael Konutgan'
 	spec.homepage = 'https://github.com/mkonutgan'
