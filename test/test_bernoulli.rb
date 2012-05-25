@@ -53,8 +53,16 @@ class BernoulliTest < Test::Unit::TestCase
 		assert_equal 25, @x.variance
 	end
 	
-	def standard_deviation
+	def test_standard_deviation
 		assert_equal 5, @x.standard_deviation
+	end
+	
+	def test_skewness
+		assert_in_delta 0.1333333333333333, @x.skewness, 1.0e-7
+	end
+	
+	def test_excess
+		assert_in_delta 0.0066666666666667, @x.excess, 1.0e-7
 	end
 	
 end

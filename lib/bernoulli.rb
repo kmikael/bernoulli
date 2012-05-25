@@ -45,6 +45,14 @@ class Bernoulli
 		Math.sqrt(self.variance)
 	end
 	alias :sd :standard_deviation
+	
+	def skewness
+		(1 - 2 * @p) / (Math.sqrt(@n * @p * (1 - @p)))
+	end
+	
+	def excess
+		(1 - 6 * @p * (1 - @p)) / (@n * @p * (1 - @p))
+	end
 
 end
 
