@@ -2,6 +2,7 @@
 Gem::Specification.new do |spec|
 	
 	spec.files = [
+		'README.md',
 		'Rakefile',
 		'bernoulli.gemspec',
 		'lib/bernoulli.rb',

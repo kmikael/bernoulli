@@ -27,10 +27,17 @@ class Bernoulli
 	def expected_value
 		@n * @p
 	end
+	alias :ev :expected_value
 	
 	def variance
 		@n * @p * (1 - @p)
 	end
+	alias :v :variance
+	
+	def standard_deviation
+		Math.sqrt(self.variance)
+	end
+	alias :sd :standard_deviation
 
 end
 
