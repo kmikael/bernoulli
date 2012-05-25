@@ -21,22 +21,40 @@ class BernoulliTest < Test::Unit::TestCase
 		end
 		assert_equal 100947, Math.binomial(23, 17)
 	end
+	
+	def test_new_experiment
+		assert_raises RuntimeError do
+			Bernoulli.new(10, 1.1)
+		end
+		assert_raises RuntimeError do
+			Bernoulli.new(-10, 0.7)
+		end
+		assert_raises RuntimeError do
+			Bernoulli.new(4.5, 0.2)
+		end
+	end
+	
+	def setup
+		@x = Bernoulli.new(180, 1.0/6)
+		@y = Bernoulli.new(2, 0.5)
+	end
 
 	def test_coin_toss
-		p = Bernoulli.new(2, 0.5)
-		assert_equal 0.5, p[1]
-		assert_equal 0.25, p[2]
-		assert_equal 1.0, p[0..2]
+		assert_equal 0.5, @y[1]
+		assert_equal 0.25, @y[2]
+		assert_equal 1.0, @y[0..2]
 	end
 	
 	def test_expected_value
-		p = Bernoulli.new(180, 1.0/6)
-		assert_equal 30, p.expected_value
+		assert_equal 30, @x.expected_value
 	end
 	
 	def test_variance
-		p = Bernoulli.new(180, 1.0/6)
-		assert_equal 25, p.variance
+		assert_equal 25, @x.variance
+	end
+	
+	def standard_deviation
+		assert_equal 5, @x.standard_deviation
 	end
 	
 end
