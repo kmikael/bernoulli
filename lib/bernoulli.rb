@@ -1,4 +1,5 @@
 require 'bernoulli/math'
+require 'csv'
 
 class Bernoulli
 
@@ -17,18 +18,31 @@ class Bernoulli
 	def [](k)
 		if k.is_a? Integer
 			raise Math::DomainError if not (k <= @n and k >= 0)
-			self.probability(k).to_f
+			probability(k).to_f
 		elsif k.is_a? Range
 			raise Math::DomainError if not (k.begin >= 0 and k.end <= @n)
 			sum = 0
 			k.each do |i|
-				sum += self.probability(i)
+				sum += probability(i)
 			end
 			sum.to_f
 		else
 			raise TypeError
 		end
 	end
+	
+	def sample
+		s = []
+		@n.times do
+			s << (rand < @p ? 1 : 0)
+		end
+		s
+	end
+	
+	def sample_value
+		sample.inject(:+)
+	end
+	alias :sv :sample_value
 	
 	def expected_value
 		@n * @p
@@ -41,7 +55,7 @@ class Bernoulli
 	alias :v :variance
 	
 	def standard_deviation
-		Math.sqrt(self.variance)
+		Math.sqrt(variance)
 	end
 	alias :sd :standard_deviation
 	
