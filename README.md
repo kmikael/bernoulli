@@ -1,4 +1,3 @@
-
 # Bernoulli : A Ruby library for the binomial distribution
 
 In probability theory and statistics, the **binomial distribution** is the discrete probability distribution of the number of successes in a sequence of *n* independent yes/no experiments, each of which yields success with probability *p*.
@@ -37,4 +36,4 @@ Then we create a new instance of class Bernoulli and calculate our desired proba
 	
 	x.expected_value # => 30.0
 	x.variance # => 25.0
-	
+

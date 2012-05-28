@@ -1,4 +1,3 @@
-
 require 'bernoulli/math'
 
 class Bernoulli

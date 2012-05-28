@@ -1,4 +1,3 @@
-
 module Math
 
 	def self.factorial(n)
