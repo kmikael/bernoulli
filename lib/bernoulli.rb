@@ -66,6 +66,14 @@ class Bernoulli
 	def excess
 		(1 - 6 * @p * (1 - @p)) / (@n * @p * (1 - @p))
 	end
+	
+	def table
+		CSV.generate do |csv|
+			(0..@n).each do |n|
+				csv << [n, probability(n)]
+			end
+		end
+	end
 
 end
 
