@@ -3,8 +3,8 @@ Gem::Specification.new do |spec|
 	spec.name = 'bernoulli'
 	spec.version = '0.2.0'
 	spec.summary = 'Binomial experiments library'
-	spec.description = 'A Library that allows calculation of probibilities and properties of binomial experiments'
-	spec.homepage = 'https://github.com/mkonutgan/bernoulli'
+	spec.description = 'A Library that allows calculation of probibilities and properties of binomial experiments like coin tossing'
+	spec.homepage = 'http://mkonutgan.github.com/bernoulli'
 	
 	spec.date = '2012-05-28'
 	
