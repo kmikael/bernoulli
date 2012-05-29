@@ -41,11 +41,11 @@ We could also calculate the standard deviation, excess or skewness:
 	
 	x.standard_deviation # => 5.0
 	x.excess # => 0.006666666666666665
-	x.skewness => 0.13333333333333336
+	x.skewness # => 0.13333333333333336
 	
 `bernoulli` can also do empirical tests. Let's look at a smaller example We can simulate the tossing of 4 fair coins
 
-	y = y = Bernoulli.new(4, 0.5)
+	y = Bernoulli.new(4, 0.5)
 	# => #<Bernoulli:0x007ff894293198 @n=4, @p=0.5>
 
 The method `sample` gives as a random array of length `n`, where each entry is `1` with a probability of `p`. The methods `sample_value` gives us the number of wins in a random expriment, we could than compare it to `expected_value`.
@@ -78,3 +78,10 @@ will produce
 `bernoulli` is a really small project. After writing the same code for some project and then losing it two or three times I decided to do it one time and well, so I can just call in the code from here next time.
 
 Feel free to cantact me about anything I could/should add  or to contribute in any way to this simple library.
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Added some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
+

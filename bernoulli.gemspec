@@ -1,31 +1,24 @@
+require File.expand_path('../lib/bernoulli/version', __FILE__)
+
 Gem::Specification.new do |spec|
 	
 	spec.name = 'bernoulli'
-	spec.version = '0.2.0'
+	spec.version = Bernoulli::VERSION
 	spec.summary = 'Binomial experiments library'
-	spec.description = 'A Library that allows calculation of probibilities and properties of binomial experiments like coin tossing'
+	spec.description = 'A library that allows calculation of probibilities and properties of binomial experiments like coin tossing'
 	spec.homepage = 'http://mkonutgan.github.com/bernoulli'
-	
-	spec.date = '2012-05-28'
 	
 	spec.author = 'Mikael Konutgan'
 	spec.email = 'mkonutgan@shortmail.com'
 	
 	spec.required_ruby_version = '>= 1.9.2'
 	
-	spec.files = [
-		'README.md',
-		'Rakefile',
-		'bernoulli.gemspec',
-		'lib/bernoulli.rb',
-		'lib/bernoulli/math.rb',
-		'test/test_bernoulli.rb',
-		'test/test_math.rb'
-	]
-	spec.test_files = [
-		'test/test_bernoulli.rb',
-		'test/test_math.rb'
-	]
+	spec.files = `git ls-files`.split($\)
+	spec.test_files = spec.files.grep(/test/)
+	
+	spec.add_development_dependency 'minitest', '~> 3.0.1'
+	spec.add_development_dependency 'rake', '~> 0.9.2.2'
+	spec.add_development_dependency 'bundler', '~> 1.1.4'
 	
 end
 
