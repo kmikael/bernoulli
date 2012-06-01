@@ -20,6 +20,10 @@ class DistributionTest < MiniTest::Unit::TestCase
 		@x = Bernoulli::Distribution.new(180, 1.0/6)
 		@y = Bernoulli::Distribution.new(2, 0.5)
 	end
+	
+	def test_to_s
+		assert_equal "#<Bernoulli::Distribution @n=2, @p=0.5>", @y.to_s
+	end
 
 	def test_coin_toss
 		assert_equal 0.5, @y[1]

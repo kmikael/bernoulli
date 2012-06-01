@@ -12,6 +12,10 @@ module Bernoulli
 			@n = n
 			@p = p
 		end
+		
+		def to_s
+			"#<Bernoulli::Distribution @n=#{@n}, @p=#{@p}>"
+		end
 	
 		def probability(k)
 			Math.binomial(@n, k) * @p**k * (1 - @p)**(@n - k)
