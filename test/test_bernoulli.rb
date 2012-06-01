@@ -2,23 +2,23 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require 'bernoulli'
 
-class BernoulliTest < MiniTest::Unit::TestCase
+class DistributionTest < MiniTest::Unit::TestCase
 	
 	def test_new_experiment
 		assert_raises RuntimeError do
-			Bernoulli.new(10, 1.1)
+			Bernoulli::Distribution.new(10, 1.1)
 		end
 		assert_raises RuntimeError do
-			Bernoulli.new(-10, 0.7)
+			Bernoulli::Distribution.new(-10, 0.7)
 		end
 		assert_raises RuntimeError do
-			Bernoulli.new(4.5, 0.2)
+			Bernoulli::Distribution.new(4.5, 0.2)
 		end
 	end
 	
 	def setup
-		@x = Bernoulli.new(180, 1.0/6)
-		@y = Bernoulli.new(2, 0.5)
+		@x = Bernoulli::Distribution.new(180, 1.0/6)
+		@y = Bernoulli::Distribution.new(2, 0.5)
 	end
 
 	def test_coin_toss
