@@ -19,6 +19,7 @@ class DistributionTest < MiniTest::Unit::TestCase
 	def setup
 		@x = Bernoulli::Distribution.new(180, 1.0/6)
 		@y = Bernoulli::Distribution.new(2, 0.5)
+		@z = Bernoulli::Distribution.new(4, 0.5)
 	end
 	
 	def test_to_s
@@ -49,6 +50,11 @@ class DistributionTest < MiniTest::Unit::TestCase
 	
 	def test_excess
 		assert_in_delta 0.0066666666666667, @x.excess, 1.0e-7
+	end
+	
+	def test_table
+		str = "0,0.0625\n1,0.25\n2,0.375\n3,0.25\n4,0.0625\n"
+		assert_equal str, @z.table
 	end
 	
 end

@@ -83,3 +83,4 @@ module Bernoulli
 	
 	end
 end
+
