@@ -46,7 +46,7 @@ module Bernoulli
 		end
 		
 		def sample_value
-			sample.inject(:+)
+			sample.count(1)
 		end
 		alias :sv :sample_value
 		
