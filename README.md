@@ -28,8 +28,8 @@ Or we could just `require 'bernoulli'` in any Ruby script.
 
 Then we create a new instance of class Bernoulli and calculate our desired probability and properties like so
 
-	x = Bernoulli.new(180, 1.0/6)
-	# => #<Bernoulli:0x007fba721a1bf0 @n=180, @p=0.16666666666666666>
+	x = Bernoulli::Distribution.new(180, 1.0/6)
+	# => #<Bernoulli::Distribution @n=180, @p=0.16666666666666666>
 	
 	# The probability of getting between 25 and 36 sixes is
 	x[25..36] # => 0.7665588897840108
@@ -45,8 +45,8 @@ We could also calculate the standard deviation, excess or skewness:
 	
 `bernoulli` can also do empirical tests. Let's look at a smaller example We can simulate the tossing of 4 fair coins
 
-	y = Bernoulli.new(4, 0.5)
-	# => #<Bernoulli:0x007ff894293198 @n=4, @p=0.5>
+	y = Bernoulli::Distribution.new(4, 0.5)
+	# => #<Bernoulli::Distribution @n=4, @p=0.5>
 
 The method `sample` gives as a random array of length `n`, where each entry is `1` with a probability of `p`. The methods `sample_value` gives us the number of wins in a random expriment, we could than compare it to `expected_value`.
 
@@ -81,7 +81,7 @@ Feel free to cantact me about anything I could/should add  or to contribute in a
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Added some feature'`)
+3. Commit your changes (`git commit -am 'added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
