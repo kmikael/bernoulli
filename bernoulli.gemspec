@@ -11,7 +11,8 @@ Gem::Specification.new do |spec|
   spec.author = 'Mikael Konutgan'
   spec.email = 'mkonutgan@shortmail.com'
   
-  spec.required_ruby_version = '>= 1.9.2'
+  spec.required_ruby_version = '>= 1.8.7'
+  spec.required_rubygems_version = '>= 1.3.6'
   
   spec.files = `git ls-files`.split($\)
   spec.test_files = spec.files.grep(/test/)
