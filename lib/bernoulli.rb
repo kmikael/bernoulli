@@ -13,7 +13,7 @@ module Bernoulli
     end
     
     def to_s
-      "#<Bernoulli::Distribution @n=#{@n}, @p=#{@p}>"
+      "#<Bernoulli::Distribution @n=#@n, @p=#@p>"
     end
     
     def probability(k)
