@@ -1,6 +1,5 @@
 require 'bernoulli/math'
 require 'bernoulli/version'
-require 'csv'
 
 module Bernoulli
   class Distribution
@@ -74,11 +73,11 @@ module Bernoulli
     end
     
     def table
-      CSV.generate do |csv|
-        (0..@n).each do |n|
-          csv << [n, probability(n)]
-        end
+      csv = ""
+      (0..@n).each do |n|
+        csv << n.to_s << "," << probability(n).to_s << "\n"
       end
+      csv
     end
   
   end
