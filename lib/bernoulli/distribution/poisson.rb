@@ -10,7 +10,7 @@ module Bernoulli
       include Distribution
       
       def initialize(l)
-        @l = l
+        @l = l.to_f
       end
       
       def to_s
