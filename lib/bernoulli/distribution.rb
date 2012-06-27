@@ -15,7 +15,7 @@ module Bernoulli
         end
         sum.to_f
       else
-        raise TypeError
+        raise TypeError, 'Expecting Integer or Range - "[]"'
       end
     end
     
