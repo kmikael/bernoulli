@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require 'bernoulli'
+require 'bernoulli/math'
 
 class MathTest < MiniTest::Unit::TestCase
   

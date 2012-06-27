@@ -6,24 +6,24 @@ class DistributionTest < MiniTest::Unit::TestCase
   
   def test_new_experiment
     assert_raises RuntimeError do
-      Bernoulli::Distribution.new(10, 1.1)
+      Bernoulli::Distribution::Binomial.new(10, 1.1)
     end
     assert_raises RuntimeError do
-      Bernoulli::Distribution.new(-10, 0.7)
+      Bernoulli::Distribution::Binomial.new(-10, 0.7)
     end
     assert_raises RuntimeError do
-      Bernoulli::Distribution.new(4.5, 0.2)
+      Bernoulli::Distribution::Binomial.new(4.5, 0.2)
     end
   end
   
   def setup
-    @x = Bernoulli::Distribution.new(180, 1.0/6)
-    @y = Bernoulli::Distribution.new(2, 0.5)
-    @z = Bernoulli::Distribution.new(4, 0.5)
+    @x = Bernoulli::Distribution::Binomial.new(180, 1.0/6)
+    @y = Bernoulli::Distribution::Binomial.new(2, 0.5)
+    @z = Bernoulli::Distribution::Binomial.new(4, 0.5)
   end
   
   def test_to_s
-    assert_equal "#<Bernoulli::Distribution @n=2, @p=0.5>", @y.to_s
+    assert_equal "#<Distribution::Binomial @n=2, @p=0.5>", @y.to_s
   end
   
   def test_coin_toss
