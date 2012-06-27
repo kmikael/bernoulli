@@ -1,4 +1,5 @@
 require 'bernoulli/distribution/binomial'
+require 'bernoulli/distribution/poisson'
 
 module Bernoulli
   
@@ -6,10 +7,8 @@ module Bernoulli
     
     def [](k)
       if k.is_a? Integer
-        raise Math::DomainError if not (k <= @n and k >= 0)
         probability(k).to_f
       elsif k.is_a? Range
-        raise Math::DomainError if not (k.begin >= 0 and k.end <= @n)
         sum = 0
         k.each do |i|
           sum += probability(i)
