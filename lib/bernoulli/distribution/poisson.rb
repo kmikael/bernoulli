@@ -36,6 +36,14 @@ module Bernoulli
       end
       alias :sd :standard_deviation
       
+      def skewness
+        1 / Math.sqrt(@l)
+      end
+      
+      def excess
+        1 / @l
+      end
+      
     end
     
   end
