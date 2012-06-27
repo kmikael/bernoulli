@@ -6,19 +6,17 @@ class MathTest < MiniTest::Unit::TestCase
   
   def test_factorial
     assert_raises(Math::DomainError) { Math.factorial(-1) }
-    assert_raises(Math::DomainError) { Math.factorial(2.4) }
     assert_equal 1, Math.factorial(0)
     assert_equal 1, Math.factorial(1)
+    assert_equal 2, Math.factorial(2)
     assert_equal 120, Math.factorial(5)
     assert_equal 263130836933693530167218012160000000, Math.factorial(32)
   end
   
   def test_binomial
-    pairs = [[-1, 0], [2, 4], [-2, -1], [1.2, 3.4], [12, 50]]
+    pairs = [[-1, 0], [2, 4], [-2, -1], [6, -3], [12, 50]]
     pairs.each do |pair|
-      assert_raises Math::DomainError do
-        Math.binomial *pair
-      end
+      assert_equal 0, Math.binomial(*pair)
     end
     assert_equal 1, Math.binomial(0, 0)
     (1..20).each do |k|

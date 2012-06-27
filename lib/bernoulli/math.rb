@@ -1,8 +1,7 @@
 module Math
 
   def self.factorial(n)
-    
-    if n < 0 or not n.is_a? Integer
+    if n < 0
       raise Math::DomainError, 'Numerical argument is out of domain - "factorial"'
     end
     if n == 0
@@ -13,10 +12,11 @@ module Math
   end
   
   def self.binomial(n, k)
-    if n < 0 or n < k or not (n.is_a? Integer and k.is_a? Integer)
-      raise Math::DomainError, 'Numerical argument is out of domain - "binomial"'
+    if n < 0 or k < 0 or n < k
+      0
+    else
+      factorial(n)/(factorial(k) * factorial(n - k))
     end
-    factorial(n)/(factorial(k) * factorial(n - k))
   end
 
 end
