@@ -19,14 +19,6 @@ module Bernoulli
       end
     end
     
-    def table
-      csv = ""
-      (0..@n).each do |n|
-        csv << n.to_s << "," << probability(n).to_s << "\n"
-      end
-      csv
-    end
-    
   end
 end
 
