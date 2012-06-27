@@ -20,7 +20,11 @@ module Bernoulli
       end
 
       def probability(k)
-        (1 - @p)**(k - 1) * @p
+        if k == 0
+          0
+        else
+          (1 - @p)**(k - 1) * @p
+        end
       end
 
       def expected_value
