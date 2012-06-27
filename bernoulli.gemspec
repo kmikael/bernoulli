@@ -4,8 +4,8 @@ Gem::Specification.new do |spec|
   
   spec.name = 'bernoulli'
   spec.version = Bernoulli::VERSION
-  spec.summary = 'Binomial experiments library'
-  spec.description = 'A library that allows calculation of probibilities and properties of binomial experiments like coin tossing'
+  spec.summary = 'Discrete probability distribution library for Ruby'
+  spec.description = 'Bernoulli implements standard methods used for statistcal calculations with discrete probability distributions in an object oriented manner'
   spec.homepage = 'http://mkonutgan.github.com/bernoulli'
   
   spec.author = 'Mikael Konutgan'
