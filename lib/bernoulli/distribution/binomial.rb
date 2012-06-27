@@ -1,5 +1,5 @@
-require 'bernoulli/math'
 require 'bernoulli/distribution'
+require 'bernoulli/math'
 
 module Bernoulli
   

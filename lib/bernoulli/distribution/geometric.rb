@@ -1,54 +1,53 @@
 require 'bernoulli/distribution'
-require 'bernoulli/math'
 
 module Bernoulli
-  
+
   module Distribution
-    
-    class Poisson
-      
+
+    class Geometric
+
       include Distribution
-      
-      def initialize(l)
-        if l <= 0.0
-          raise 'Could not initialize - Expecting l > 0.0'
+
+      def initialize(p)
+        if p > 1.0 or p < 0.0
+          raise 'Could not initialize - Expecting 0.0 < p < 1.0'
         end
-        @l = l.to_f
+        @p = p.to_f
       end
-      
+
       def to_s
-        "#<Distribution::Poisson @l=#@l>"
+        "#<Distribution::Geometric @p=#@p>"
       end
-      
+
       def probability(k)
-        (@l**k / Math.factorial(k).to_f) * Math.exp(-@l)
+        (1 - @p)**(k - 1) * @p
       end
-      
+
       def expected_value
-        @l
+        1 / @p
       end
       alias :ev :expected_value
-      
+
       def variance
-        @l
+        (1 - @p) / @p**2
       end
       alias :v :variance
-      
+
       def standard_deviation
         Math.sqrt(variance)
       end
       alias :sd :standard_deviation
-      
+
       def skewness
-        1 / Math.sqrt(@l)
+        (2 - @p) / Math.sqrt(1 - @p)
       end
-      
+
       def excess
-        1 / @l
+        6 + @p**2 / (1 - @p)
       end
-      
+
     end
-    
+
   end
 end
 

@@ -1,4 +1,5 @@
 require 'bernoulli/distribution/binomial'
+require 'bernoulli/distribution/geometric'
 require 'bernoulli/distribution/poisson'
 
 module Bernoulli

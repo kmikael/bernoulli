@@ -9,7 +9,7 @@ class PoissonTest < MiniTest::Unit::TestCase
   end
 
   def test_to_s
-    assert_equal "#<Distribution::Poisson @l=1.0>", @x .to_s
+    assert_equal "#<Distribution::Poisson @l=1.0>", @x.to_s
   end
   
   def test_probabilities
