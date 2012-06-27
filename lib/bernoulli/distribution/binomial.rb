@@ -48,11 +48,6 @@ module Bernoulli
       end
       alias :v :variance
       
-      def standard_deviation
-        Math.sqrt(variance)
-      end
-      alias :sd :standard_deviation
-      
       def skewness
         (1 - 2 * @p) / (Math.sqrt(@n * @p * (1 - @p)))
       end

@@ -20,6 +20,11 @@ module Bernoulli
       end
     end
     
+    def standard_deviation
+      Math.sqrt(variance)
+    end
+    alias :sd :standard_deviation
+    
   end
 end
 
