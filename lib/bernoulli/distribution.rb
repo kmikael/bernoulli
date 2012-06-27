@@ -5,15 +5,15 @@ module Bernoulli
   
   module Distribution
     
+    def probability_range(r)
+      r.inject(0) { |s, k| s + probability(k) }
+    end
+    
     def [](k)
       if k.is_a? Integer
         probability(k).to_f
       elsif k.is_a? Range
-        sum = 0
-        k.each do |i|
-          sum += probability(i)
-        end
-        sum.to_f
+        probability_range(k).to_f
       else
         raise TypeError, 'Expecting Integer or Range - "[]"'
       end
