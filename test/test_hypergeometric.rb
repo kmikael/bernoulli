@@ -1,11 +1,16 @@
-require 'minitest/autorun'
+require 'minitest/unit'
 require 'minitest/pride'
 require 'bernoulli/distribution'
 
 class HypergeometricTest < MiniTest::Unit::TestCase
+  
+  def assert_in_eps exp, act
+    assert_in_delta exp, act, 1.0e-8
+  end
 
   def setup
     @x = Bernoulli::Distribution::Hypergeometric.new(5, 3, 2)
+    @y = Bernoulli::Distribution::Hypergeometric.new(50, 17, 9)
   end
 
   def test_to_s
@@ -13,23 +18,28 @@ class HypergeometricTest < MiniTest::Unit::TestCase
   end
 
   def test_probabilities
-    assert_in_delta 1.0/10, @x[0], 1.0e-7
-    assert_in_delta 6.0/10, @x[1], 1.0e-7
-    assert_in_delta 3.0/10, @x[2], 1.0e-7
-    assert_in_delta 1.0, @x[0..2], 1.0e-7
-    assert_in_delta 9.0/10, @x[1..2], 1.0e-7
-    
-    assert_in_delta 0, @x[3], 1.0e-7
-    assert_in_delta 0, @x[4], 1.0e-7
+    assert_in_eps 0.1, @x[0]
+    assert_in_eps 0.6, @x[1]
+    assert_in_eps 0.3, @x[2]
+    assert_in_eps 1.0, @x[0..2]
+    assert_in_eps 0.9, @x[1..2]
+    assert_in_eps 0.0, @x[3]
+    assert_in_eps 0.0, @x[4]
   end
 
   def test_expected_value
+    assert_in_eps 1.2, @x.expected_value
+    assert_in_eps 3.06, @y.expected_value
   end
 
   def test_variance
+    assert_in_eps 0.36, @x.variance
+    assert_in_eps 1.689869388, @y.variance
   end
 
   def test_standard_deviation
+    assert_in_eps 0.6, @x.standard_deviation
+    assert_in_eps 1.299949764, @y.standard_deviation
   end
 
 end
