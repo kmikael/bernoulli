@@ -1,6 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'bernoulli/distribution'
+require File.expand_path('../../helper', __FILE__)
 
 class PoissonTest < MiniTest::Unit::TestCase
 
@@ -22,10 +20,10 @@ class PoissonTest < MiniTest::Unit::TestCase
       0.0030656620097620196,
       0.0005109436682936699
     ]
-    (0..6).each { |v| assert_in_delta p[v], @x[v], 1.0e-7 }
+    (0..6).each { |v| assert_in_eps p[v], @x[v] }
     
-    assert_in_delta 1, @x[0..10], 1.0e-7
-    assert_in_delta 0.9810118431238463, @x[0..3], 1.0e-7
+    assert_in_eps 1, @x[0..10]
+    assert_in_eps 0.9810118431238463, @x[0..3]
   end
 
   def test_expected_value
@@ -41,4 +39,3 @@ class PoissonTest < MiniTest::Unit::TestCase
   end
 
 end
-

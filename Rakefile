@@ -3,7 +3,9 @@ require 'bundler/gem_tasks'
 
 task :default => :test
 
-Rake::TestTask.new do |test|
+Rake::TestTask.new do |t|
+  t.libs << 'test'
+  t.pattern = 'test/**/test*.rb'
 end
 
 desc 'Remove pkg directory'
@@ -17,4 +19,3 @@ desc "Remove and uninstall #{spec.name}-#{spec.version}.gem from system gems"
 task :uninstall => :clean do
   sh 'gem uninstall bernoulli'
 end
-

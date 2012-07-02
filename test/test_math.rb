@@ -34,4 +34,3 @@ class MathTest < MiniTest::Unit::TestCase
   end
   
 end
-

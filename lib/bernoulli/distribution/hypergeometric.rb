@@ -13,7 +13,7 @@ module Bernoulli
         if bn < 1 or m < 0 or m > bn or n < 1 or n > bn
           raise 'Expecting bn > 1, 0 < m < bn, 0 < n < bn'
         end
-        @bn, @m, @n = bn, m, n
+        @bn, @m, @n = bn.to_i, m.to_i, n.to_i
       end
 
       def to_s

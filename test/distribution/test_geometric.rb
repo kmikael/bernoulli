@@ -1,6 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'bernoulli/distribution'
+require File.expand_path('../../helper', __FILE__)
 
 class GeometricTest < MiniTest::Unit::TestCase
 
@@ -13,7 +11,7 @@ class GeometricTest < MiniTest::Unit::TestCase
   end
 
   def test_probabilities
-    assert_in_delta 1.0, @x[1..100], 1.0e-7
+    assert_in_eps 1.0, @x[1..100]
     assert_equal 0.5, @x[1]
     assert_equal 0.25, @x[2]
   end
@@ -27,8 +25,7 @@ class GeometricTest < MiniTest::Unit::TestCase
   end
 
   def test_standard_deviation
-    assert_in_delta 1.4142135623730951, @x.sd, 1.0e-7
+    assert_in_eps 1.4142135623730951, @x.standard_deviation
   end
 
 end
-

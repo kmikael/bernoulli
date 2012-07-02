@@ -1,12 +1,6 @@
-require 'minitest/unit'
-require 'minitest/pride'
-require 'bernoulli/distribution'
+require File.expand_path('../../helper', __FILE__)
 
 class HypergeometricTest < MiniTest::Unit::TestCase
-  
-  def assert_in_eps exp, act
-    assert_in_delta exp, act, 1.0e-8
-  end
 
   def setup
     @x = Bernoulli::Distribution::Hypergeometric.new(5, 3, 2)
@@ -43,4 +37,3 @@ class HypergeometricTest < MiniTest::Unit::TestCase
   end
 
 end
-

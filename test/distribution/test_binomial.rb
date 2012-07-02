@@ -1,6 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require 'bernoulli/distribution'
+require File.expand_path('../../helper', __FILE__)
 
 class BinomialTest < MiniTest::Unit::TestCase
 
@@ -44,12 +42,11 @@ class BinomialTest < MiniTest::Unit::TestCase
   end
 
   def test_skewness
-    assert_in_delta 0.1333333333333333, @x.skewness, 1.0e-7
+    assert_in_eps 0.1333333333333333, @x.skewness
   end
 
   def test_excess
-    assert_in_delta 0.0066666666666667, @x.excess, 1.0e-7
+    assert_in_eps 0.0066666666666667, @x.excess
   end
 
 end
-
