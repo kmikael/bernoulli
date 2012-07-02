@@ -11,7 +11,7 @@ module Bernoulli
 
       def initialize(bn, m, n)
         if bn < 1 or m < 0 or m > bn or n < 1 or n > bn
-          raise 'Could not initialize - Expecting N > 1, 0 < m < N or 0 < n < N'
+          raise 'Expecting bn > 1, 0 < m < bn, 0 < n < bn'
         end
         @bn, @m, @n = bn, m, n
       end
@@ -25,19 +25,19 @@ module Bernoulli
       end
 
       def expected_value
-        @bn * (@m / @bn)
+        @n * (@m.to_f / @bn)
       end
       alias :ev :expected_value
 
       def variance
-        (@bn * @m * (@bn - @m) *(@bn - @bn)) / (@bn * @bn * (@bn - 1))
+        (@n * @m * (@bn - @m) *(@bn - @n)).to_f / (@bn * @bn * (@bn - 1))
       end
       alias :v :variance
 
       def skewness
-        
+        ((@bn - 2 * @m) * Math.sqrt(@bn - 1) * (@bn - 2 * n)) / (Math.sqrt(@n * @m * (@bn - @m) * (@bn - n)) * (@bn - 2))
       end
-
+  
       def excess
       end
 
