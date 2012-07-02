@@ -19,6 +19,9 @@ class HypergeometricTest < MiniTest::Unit::TestCase
     assert_in_eps 0.9, @x[1..2]
     assert_in_eps 0.0, @x[3]
     assert_in_eps 0.0, @x[4]
+    
+    assert_in_eps 1.0, @y[0..9]
+    assert_in_eps 0.0, @y[10]
   end
 
   def test_expected_value
@@ -34,6 +37,16 @@ class HypergeometricTest < MiniTest::Unit::TestCase
   def test_standard_deviation
     assert_in_eps 0.6, @x.standard_deviation
     assert_in_eps 1.299949764, @y.standard_deviation
+  end
+  
+  def test_skewness
+    assert_in_eps -0.111111111, @x.skewness
+    assert_in_eps 0.164108906, @y.skewness
+  end
+  
+  def test_excess
+    assert_in_eps -0.444444444, @x.excess
+    assert_in_eps -0.14585017, @y.excess
   end
 
 end

@@ -35,14 +35,14 @@ module Bernoulli
       alias :v :variance
 
       def skewness
-        ((@bn - 2 * @m) * Math.sqrt(@bn - 1) * (@bn - 2 * n)) / (Math.sqrt(@n * @m * (@bn - @m) * (@bn - n)) * (@bn - 2))
+        ((@bn - 2 * @m) * Math.sqrt(@bn - 1) * (@bn - 2 * @n)) / (Math.sqrt(@n * @m * (@bn - @m) * (@bn - @n)) * (@bn - 2))
       end
   
       def excess
+        ((@bn - 1) * @bn * @bn * (@bn * (@bn + 1) - 6 * @m * (@bn - @m) - 6 * @n * (@bn - @n)) + 6 * @n * @m * (@bn - @m) * (@bn - @n) * (5 * @bn - 6)).to_f / (@n * @m * (@bn - @m) * (@bn - @n) * (@bn - 2) * (@bn - 3))
       end
 
     end
 
   end
 end
-
