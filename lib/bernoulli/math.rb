@@ -20,4 +20,3 @@ module Math
   end
 
 end
-

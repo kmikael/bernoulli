@@ -49,4 +49,3 @@ module Bernoulli
 
   end
 end
-
