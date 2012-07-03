@@ -11,7 +11,7 @@ module Bernoulli
       
       def initialize(n, p)
         if n < 0 or p > 1.0 or p < 0.0
-          raise 'Could not initialize - Expecting n < 0 and 0.0 < p < 1.0'
+          raise 'Expecting n < 0 and 0.0 < p < 1.0'
         end
         @n = n.to_i
         @p = p.to_f
@@ -57,5 +57,6 @@ module Bernoulli
       end
       
     end
+    
   end
 end

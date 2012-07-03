@@ -10,7 +10,7 @@ module Bernoulli
 
       def initialize(p)
         if p > 1.0 or p < 0.0
-          raise 'Could not initialize - Expecting 0.0 < p < 1.0'
+          raise 'Expecting 0.0 < p < 1.0'
         end
         @p = p.to_f
       end
