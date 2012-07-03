@@ -1,5 +1,3 @@
-require 'bernoulli/distribution'
-
 module Bernoulli
 
   module Distribution
