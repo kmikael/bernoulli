@@ -24,6 +24,10 @@ module Bernoulli
         (@l**k / Math.factorial(k)) * Math.exp(-@l)
       end
       
+      def probability_range(r)
+        Math.exp(-@l) * r.inject(0) { |s, k| s + (@l**k / Math.factorial(k)) }
+      end
+      
       def expected_value
         @l
       end
