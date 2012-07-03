@@ -11,7 +11,7 @@ module Bernoulli
       
       def initialize(l)
         if l <= 0.0
-          raise 'Could not initialize - Expecting l > 0.0'
+          raise 'Expecting l > 0.0'
         end
         @l = l.to_f
       end
@@ -21,7 +21,7 @@ module Bernoulli
       end
       
       def probability(k)
-        (@l**k / Math.factorial(k).to_f) * Math.exp(-@l)
+        (@l**k / Math.factorial(k)) * Math.exp(-@l)
       end
       
       def expected_value
@@ -46,4 +46,3 @@ module Bernoulli
     
   end
 end
-
