@@ -4,10 +4,14 @@ module Bernoulli
   
   module Distribution
     
+    # Implements Poisson distributed random variable
+    # See http://en.wikipedia.org/wiki/Poisson_distribution
+    # for more information
     class Poisson
       
       include Distribution
       
+      # @param l [Float] the avarage rate of success in a time period
       def initialize(l)
         if l <= 0.0
           raise 'Expecting l > 0.0'
@@ -19,6 +23,9 @@ module Bernoulli
         "#<Distribution::Poisson @l=#@l>"
       end
       
+      # @param k [Integer] number of successes (>= 0)
+      # @return [Float] the probability of `k` successes
+      # in the time period
       def probability(k)
         (@l**k / Math.factorial(k)) * Math.exp(-@l)
       end

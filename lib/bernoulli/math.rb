@@ -1,5 +1,7 @@
+# Extend the Ruby Math module with common functions used in
+# statstical distributions
 module Math
-
+  
   def self.factorial(n)
     if n < 0
       raise Math::DomainError, 'Numerical argument is out of domain - "factorial"'
