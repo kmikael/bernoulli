@@ -1,8 +1,11 @@
-# Bernoulli : A Ruby library for the binomial distribution
+# Bernoulli: Discrete probability distribution library for Ruby
 
-In probability theory and statistics, the **binomial distribution** is the discrete probability distribution of the number of successes in a sequence of *n* independent yes/no experiments, each of which yields success with probability *p*.
+**Bernoulli** implements the four most common discrete probability distributions in an object oriented manner and in pure Ruby.
 
-You can read more about **Bernoulli trials** and the **binomial distribution** [on Wikipedia](http://en.wikipedia.org/wiki/Binomial_distribution).
+- The binomial distribution
+- The geometric distribution
+- The hypergeometric distribution
+- The Poisson distribution
 
 ## Installation
 
@@ -12,76 +15,66 @@ Use RubyGems to install `bernoulli`
 
 ## Tutorial
 
-Using `bernoulli`, one can calculate the probabilities of bernoulli experiments.
+The classes in `bernoulli` reprsent random variables:
 
-Let's start by looking at an example.
+    Bernoulli::Distribution::<DistributionName>
+    
+If, for example you wanted to have a geometrically distributed random variable with parameter 0.43, you would do:
 
-**Question:** What is the chance of getting between 25 and 36 sixes when one rolls a die 180 times? What is the expected value and variance of this trial?
+    y = Bernoulli::Distribution::Geometric.new(0.43)
+    
+Also if you `require 'bernoulli/shorthand'` too, you will get top level shortcut functions to create new instances of all distributions:
 
-Let's use `bernoulli` to solve this:
+- `binomdist`
+- `geomdist`
+- `hgeomdist`
+- `poissondist`
 
-First we load up `irb` from the terminal including `bernoulli` as a library.
+So `y = geomdist(0.43)` would be equivalent to the code shown above.
+    
+After this you call methods on `y`. The methods avalible to all distributions are:
 
-	$ irb -r bernoulli
-	
-Or we could just `require 'bernoulli'` in any Ruby script.
+- `probability`
+- `probability_range`
+- `expected_value`
+- `variance`
+- `standard_deviation`
+- `skewness`
+- `excess`
 
-Then we create a new instance of class Bernoulli and calculate our desired probability and properties like so
+Again, shortcuts include (but this time included automatically):
 
-	x = Bernoulli::Distribution.new(180, 1.0/6)
-	# => #<Bernoulli::Distribution @n=180, @p=0.16666666666666666>
-	
-	# The probability of getting between 25 and 36 sixes is
-	x[25..36] # => 0.7665588897840108
-	
-	x.expected_value # => 30.0
-	x.variance # => 25.0
-	
-We could also calculate the standard deviation, excess or skewness:
-	
-	x.standard_deviation # => 5.0
-	x.excess # => 0.006666666666666665
-	x.skewness # => 0.13333333333333336
-	
-`bernoulli` can also do empirical tests. Let's look at a smaller example We can simulate the tossing of 4 fair coins
+- `ev` for `expected_value`
+- `v` for `variance`
+- `sd` for `standard_deviation`
+- `[]`, which takes a number or a range and then executes `probability` or `probability_range`
 
-	y = Bernoulli::Distribution.new(4, 0.5)
-	# => #<Bernoulli::Distribution @n=4, @p=0.5>
+### Example
 
-The method `sample` gives as a random array of length `n`, where each entry is `1` with a probability of `p`. The methods `sample_value` gives us the number of wins in a random expriment, we could than compare it to `expected_value`.
+    require 'bernoulli'
+    require 'bernoulli/shorthand'
+    
+    x = binomdist(180, 1.0/6)
+    # => #<Distribution::Binomial @n=180, @p=0.16666666666666666>
+    
+    x.ev # => 30.0
+    x.v # => 25.0
+    x[25..36] # => 0.7665588897840108
+    
+Last, but not least, there are two methods exclusive to the binomial distribution:
 
-	y.sample # => [1, 0, 1, 0]
-	y.sample # => [0, 0, 1, 0]
-	y.sample # => [1, 1, 1, 1]
+The method `sample` returns a random array of length `n`, where each entry is 1 with a probability of `p`. This is esentially modelling a binomial experiment.
 
-	y.sample_value # => 2
-	y.sample_value # => 1
-	y.sample_value # => 0
-	y.sample_value # => 2
-	
-	y.expected_value # => 2.0
-
-Last, but not least, we can create a full table of all possible values and their probabilitys like so
-
-	puts y.table
-	
-will produce
-
-	0,0.0625
-	1,0.25
-	2,0.375
-	3,0.25
-	4,0.0625
+The method `sample_value` returns the number of successes in a random binomial expriment that was executed using `sample`. `sv` is a shortcut for `sample_value`.
 
 ## Contributing
 
-`bernoulli` is a really small project. After writing the same code for some project and then losing it two or three times I decided to do it one time and well, so I can just call in the code from here next time.
+`bernoulli` is a small project. After writing the same code for some project and then losing it two or three times I decided to do it one time and well, so I can just call in the code from here next time.
 
-Feel free to cantact me about anything I could/should add  or to contribute in any way to this simple library.
+Feel free to cantact me about anything I could/should add or to contribute in any way to this simple library.
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-
