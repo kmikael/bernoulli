@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Bernoulli by mkonutgan</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Bernoulli</h1>
+        <p>A Ruby library for the binomial distribution</p>
+        <p class="view"><a href="https://github.com/mkonutgan/bernoulli">View the Project on GitHub <small>mkonutgan/bernoulli</small></a></p>
+        <ul>
+          <li><a href="https://github.com/mkonutgan/bernoulli/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/mkonutgan/bernoulli/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/mkonutgan/bernoulli">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Bernoulli: Discrete probability distribution library for Ruby</h1>
+
+<p><strong>Bernoulli</strong> implements the four most common discrete probability distributions in an object oriented manner and in pure Ruby.</p>
+
+<ul>
+<li>The binomial distribution</li>
+<li>The geometric distribution</li>
+<li>The hypergeometric distribution</li>
+<li>The Poisson distribution</li>
+</ul><h2>Installation</h2>
+
+<p>Use RubyGems to install <code>bernoulli</code></p>
+
+<pre><code>$ gem install bernoulli
+</code></pre>
+
+<h2>Tutorial</h2>
+
+<p>The classes in <code>bernoulli</code> reprsent random variables:</p>
+
+<pre><code>Bernoulli::Distribution::&lt;DistributionName&gt;
+</code></pre>
+
+<p>If, for example you wanted to have a geometrically distributed random variable with parameter 0.43, you would do:</p>
+
+<pre><code>y = Bernoulli::Distribution::Geometric.new(0.43)
+</code></pre>
+
+<p>Also if you <code>require 'bernoulli/shorthand'</code> too, you will get top level shortcut functions to create new instances of all distributions:</p>
+
+<ul>
+<li><code>binomdist</code></li>
+<li><code>geomdist</code></li>
+<li><code>hgeomdist</code></li>
+<li><code>poissondist</code></li>
+</ul><p>So <code>y = geomdist(0.43)</code> would be equivalent to the code shown above.</p>
+
+<p>After this you call methods on <code>y</code>. The methods avalible to all distributions are:</p>
+
+<ul>
+<li><code>probability</code></li>
+<li><code>probability_range</code></li>
+<li><code>expected_value</code></li>
+<li><code>variance</code></li>
+<li><code>standard_deviation</code></li>
+<li><code>skewness</code></li>
+<li><code>excess</code></li>
+</ul><p>Again, shortcuts include (but this time included automatically):</p>
+
+<ul>
+<li>
+<code>ev</code> for <code>expected_value</code>
+</li>
+<li>
+<code>v</code> for <code>variance</code>
+</li>
+<li>
+<code>sd</code> for <code>standard_deviation</code>
+</li>
+<li>
+<code>[]</code>, which takes a number or a range and then executes <code>probability</code> or <code>probability_range</code>
+</li>
+</ul><h3>Example</h3>
+
+<pre><code>require 'bernoulli'
+require 'bernoulli/shorthand'
+
+x = binomdist(180, 1.0/6)
+# =&gt; #&lt;Distribution::Binomial @n=180, @p=0.16666666666666666&gt;
+
+x.ev # =&gt; 30.0
+x.v # =&gt; 25.0
+x[25..36] # =&gt; 0.7665588897840108
+</code></pre>
+
+<p>Last, but not least, there are two methods exclusive to the binomial distribution:</p>
+
+<p>The method <code>sample</code> returns a random array of length <code>n</code>, where each entry is 1 with a probability of <code>p</code>. This is esentially modelling a binomial experiment.</p>
+
+<p>The method <code>sample_value</code> returns the number of successes in a random binomial expriment that was executed using <code>sample</code>. <code>sv</code> is a shortcut for <code>sample_value</code>.</p>
+
+<h2>Contributing</h2>
+
+<p><code>bernoulli</code> is a small project. After writing the same code for some project and then losing it two or three times I decided to do it one time and well, so I can just call in the code from here next time.</p>
+
+<p>Feel free to cantact me about anything I could/should add or to contribute in any way to this simple library.</p>
+
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'added some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/mkonutgan">mkonutgan</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    
+  </body>
+</html>
