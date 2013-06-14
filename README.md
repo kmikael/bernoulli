@@ -15,7 +15,7 @@ Use RubyGems to install `bernoulli`
 
 ## Tutorial
 
-The classes in `bernoulli` reprsent random variables:
+The classes in `bernoulli` represent random variables:
 
     Bernoulli::Distribution::<DistributionName>
     
@@ -71,7 +71,7 @@ The method `sample_value` returns the number of successes in a random binomial e
 
 `bernoulli` is a small project. After writing the same code for some project and then losing it two or three times I decided to do it one time and well, so I can just call in the code from here next time.
 
-Feel free to cantact me about anything I could/should add or to contribute in any way to this simple library.
+Feel free to contact me about anything I could/should add or to contribute in any way to this simple library.
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
